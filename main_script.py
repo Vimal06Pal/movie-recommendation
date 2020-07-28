@@ -1,3 +1,5 @@
+# importing libraries
+
 import numpy as np 
 import pandas as pd 
 from sklearn.feature_extraction.text import CountVectorizer
@@ -31,9 +33,8 @@ def rcmd(m):
         d={}
         col = ['director_name', 'actor_1_name', 'actor_2_name', 'actor_3_name','genres', 'movie_title', 'comb']
         for i in range(len(lst)):
-            a = lst[i][0]
+            a = lst[i][0] 
             d[col[5]] = data[col[5]][a]
-            # d['genres'] = data['genres'][a]
             d[col[4]] = data[col[4]][a]
             d[col[1]] = data[col[1]][a]
             d[col[2]] = data[col[2]][a]
@@ -41,7 +42,8 @@ def rcmd(m):
             d[col[0]] = data[col[0]][a]
             l.append(d)
             d={}
-        return(l)
+        df = pd.DataFrame(l)
+        return(df)
 
 m= input("\n enter the movie\n")
 lis = rcmd(m)
